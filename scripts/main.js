@@ -188,4 +188,5 @@ document.getElementById("btnDelete").addEventListener("click", function (event) 
                 })
                 .catch(error => console.log(error.message));
         })
+    document.getElementById("inputDelete").value = "";
 })
