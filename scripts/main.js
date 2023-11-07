@@ -84,6 +84,7 @@ document.getElementById("btnGet1").addEventListener("click", function (event) {
             })
             .catch(error => console.log(error.message));
     }
+    document.getElementById("inputGet1Id").value = "";
 });
 
 //POST
@@ -104,7 +105,7 @@ document.getElementById("btnPost").addEventListener("click", function (event) {
 
     fetch(API_URL, miInicializador)
         .then(response => {
-            if (response.ok){
+            if (response.ok) {
                 document.getElementById("alert-error").classList.add("fade");
             } else {
                 document.getElementById("alert-error").classList.remove("fade");
@@ -118,6 +119,8 @@ document.getElementById("btnPost").addEventListener("click", function (event) {
         })
         .catch(error => console.log(error.message));
 
+    document.getElementById("inputPostNombre").value = "";
+    document.getElementById("inputPostApellido").value = "";
 });
 
 //PUT
@@ -152,7 +155,7 @@ document.getElementById("btnSendChanges").addEventListener("click", function (ev
     // Borrar string de los inputs
     document.getElementById("inputPutNombre").value = "";
     document.getElementById("inputPutApellido").value = "";
-
+    document.getElementById("inputPutId").value = "";
 });
 
 //DELETE
@@ -169,14 +172,14 @@ document.getElementById("btnDelete").addEventListener("click", function (event) 
 
     fetch(API_URL + userID, requestOptions)
         .then(response => {
-            if (response.ok){
+            if (response.ok) {
                 document.getElementById("alert-error").classList.add("fade");
             } else {
                 document.getElementById("alert-error").classList.remove("fade");
             }
             fetch(API_URL)
                 .then(response => {
-                    if (response.ok){
+                    if (response.ok) {
                         return response.json()
                     }
                 })
